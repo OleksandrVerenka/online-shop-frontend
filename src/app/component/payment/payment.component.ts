@@ -15,7 +15,8 @@ export class PaymentComponent implements OnInit {
   product: Product = new Product();
   creditCard: CreditCard = new CreditCard();
   isFormValid = true;
-  creditCardPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  creditCardPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)|(?:5[1-5][0-9]{14})|(?:3[47][0-9]{13})|(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+
   cvPattern = /\d{3}/;
   monthPattern = /^(1[0-2]|[1-9])$/;
   yearPattern = /\d{2}/;
