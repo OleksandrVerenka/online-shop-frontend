@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../../service/rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { from } from 'rxjs';
 import { Product } from '../../model/product.model';
 
 @Component({

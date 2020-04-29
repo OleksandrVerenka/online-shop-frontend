@@ -1,0 +1,69 @@
+<div class="col-xs-12 col-md-4 card">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Payment Details
+      </h3>
+    </div>
+    <div class="panel-body">
+      <form role="form" #cardForm="ngForm">
+        <div class="form-group">
+          <label for="cardNumber">
+            CARD NUMBER</label>
+          <div class="input-group">
+            <input type="text" required maxlength="16" class="form-control" id="cardNumber"
+                   name="cardNumber" placeholder="Valid Card Number" [(ngModel)]="creditCard.cardNumber"
+                   [pattern]="creditCardPattern" #cardNumber="ngModel"
+                   [ngStyle]=setInputStyle(cardNumber)>
+            <div *ngIf="!isFormValid && cardNumber.errors && (cardNumber.dirty || cardNumber.touched)" class="message">
+              <div *ngIf="cardNumber.errors.pattern" class="alert alert-danger">
+                <span>Card number is not valid</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-7 col-md-7">
+            <div class="form-group">
+              <label for="expirationMonth">
+                EXPIRY DATE</label>
+              <div class="row">
+                <div class="col-xs-4 col-lg-4 pl-ziro">
+                  <input type="text" class="form-control" id="expirationMonth" name="expirationMonth" placeholder="MM"
+                         max="12" min="1" maxlength="2" required [pattern]="monthPattern"
+                         [(ngModel)]="creditCard.expirationMonth" #expirationMonth="ngModel" placeholder="MM"
+                         [ngStyle]=setInputStyle(expirationMonth)>
+                </div>
+                <h2>/</h2>
+                <div class="col-xs-4 col-lg-4 pl-ziro">
+                  <input type="text" class="form-control" id="expirationYear" name="expirationYear" placeholder="YY"
+                         required [(ngModel)]="creditCard.expirationYear" #expirationYear="ngModel" placeholder="YY"
+                         maxlength="2" min="20" [pattern]="yearPattern"
+                         [ngStyle]=setInputStyle(expirationYear)>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-5 col-md-5 pull-right">
+            <div class="form-group">
+              <label for="cvCode">
+                CV CODE</label>
+              <input type="password" class="form-control" id="cvCode" name="cvCode" placeholder="CV" required
+                     minlength="3" maxlength="3" [pattern]="cvPattern"
+                     [(ngModel)]="creditCard.cv" #cv="ngModel"
+                     [ngStyle]="setInputStyle(cv)">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <span>Final Payment: ${{product.price}}</span>
+  <br>
+  <button href="#" type="submit" class="btn btn-success btn-lg btn-block" role="button" (click)="buyProduct(cardForm)">
+    Pay
+  </button>
+</div>
+<!-- </div>
+</div> -->

@@ -8,11 +8,23 @@ import { ProductListComponent } from './component/product-list/product-list.comp
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PaymentComponent } from './component/payment/payment.component';
+import { PurchaseDetailsComponent } from './component/purchase-details/purchase-details.component';
+
+
 
 const appRoutes: Routes = [
   {
     path: 'products',
     component: ProductListComponent
+  },
+  {
+    path: 'products/:id/payment',
+    component: PaymentComponent
+  },
+  {
+    path: 'products/:id/purchase/details',
+    component: PurchaseDetailsComponent
   },
   {
     path: '',
@@ -24,7 +36,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    PaymentComponent,
+    PurchaseDetailsComponent
   ],
   imports: [
     BrowserModule,
