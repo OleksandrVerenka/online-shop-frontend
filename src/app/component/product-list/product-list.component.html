@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let product of products; let i=index;" class="col-3" style="padding: 15px;">
+      <div class="card">
+        <img class="card-img-top" src="http://placehold.it/700x400" alt="">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p>{{product.name}}</p>
+          </h4>
+          <h5>Price: ${{product.price}}</h5>
+          <p class="card-text">{{product.description}}</p>
+          <button class="buy" title="buy product" (click)="buyProduct(product.id)">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pages">
+  <ul class="nav nav-pills">
+    <li class="nav-item" *ngFor="let page of pages; let i = index">
+      <a class="nav-link" style="display: inline;" href="#" (click)="setPage(i, $event)">{{i + 1}}</a>
+    </li>
+  </ul>
+</div>
+
+
